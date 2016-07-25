@@ -3,6 +3,7 @@ require 'basket'
 describe 'Feature tests' do
 
   describe '#initialize' do
+
     it 'basket has a product catalog of products' do
       socks = Product.new("Socks", "S01", 7.95)
       jeans = Product.new("Jeans", "J01", 32.95)
@@ -12,8 +13,9 @@ describe 'Feature tests' do
       products.add(blouse)
       products.add(jeans)
       basket = Basket.new(products)
-      expect(basket.product_catalog).to eq(products.catalog)
+      expect(basket.product_catalog).to eq products.catalog
     end
+    
   end
 
 end
