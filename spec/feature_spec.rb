@@ -20,7 +20,10 @@ describe 'Feature tests' do
     it 'basket has an empty order log' do
       expect(basket.order_log).to be_empty
     end
-    
+
+    it 'basket has a total of 0' do
+      expect(basket.total).to eq 0
+    end
   end
 
 end
