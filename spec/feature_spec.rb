@@ -26,7 +26,7 @@ describe 'Feature tests' do
     end
 
     it 'basket has delivery charge rules' do
-      expect(basket.delivery_charges).to_be_an_instance_of DeliveryCharges
+      expect(basket.delivery_charges).to be_an_instance_of DeliveryCharges
     end
   end
 

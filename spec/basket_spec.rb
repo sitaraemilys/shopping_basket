@@ -23,4 +23,8 @@ describe Basket do
     expect(basket.total).to eq 0
   end
 
+  it 'has delivery charge rules' do
+    expect(basket.delivery_charges).to be_an_instance_of DeliveryCharges
+  end
+
 end
