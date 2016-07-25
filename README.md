@@ -4,7 +4,7 @@ A system for an online shopping basket.
 
 ## Features
 
-* It is initialised with the product catalog, delivery charge rules, and offers (the format of how these are passed is up to you)
+* It is initialised with the product catalog, delivery charge rules, and offers
 * It has an add method that takes the product code as a parameter
 * It has a total method that returns the total cost of the basket, taking into account the delivery and offer rules
 
