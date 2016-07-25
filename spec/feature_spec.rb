@@ -2,36 +2,47 @@ require 'basket'
 
 describe 'Feature tests' do
 
-  describe '#initialize' do
+  socks = Product.new("Socks", "S01", 7.95)
+  jeans = Product.new("Jeans", "J01", 32.95)
+  blouse = Product.new("Blouse", "B01", 24.95)
+  products = Products.new
+  products.add(socks)
+  products.add(blouse)
+  products.add(jeans)
+  basket = Basket.new(products)
 
-    socks = Product.new("Socks", "S01", 7.95)
-    jeans = Product.new("Jeans", "J01", 32.95)
-    blouse = Product.new("Blouse", "B01", 24.95)
-    products = Products.new
-    products.add(socks)
-    products.add(blouse)
-    products.add(jeans)
-    basket = Basket.new(products)
+  context 'basket' do
 
-    it 'basket has a product catalog of products' do
-      expect(basket.product_catalog).to eq products.catalog
-    end
+    describe '#initialize' do
+      it 'basket has a product catalog of products' do
+        expect(basket.product_catalog).to eq products.catalog
+      end
 
-    it 'basket has an empty order log' do
-      expect(basket.order_log).to be_empty
-    end
+      it 'basket has an empty order log' do
+        expect(basket.order_log).to be_empty
+      end
 
-    it 'basket has a total of 0' do
-      expect(basket.total).to eq 0
-    end
+      it 'basket has a total of 0' do
+        expect(basket.total).to eq 0
+      end
 
-    it 'basket has delivery charge rules' do
-      expect(basket.delivery_charges).to be_an_instance_of DeliveryCharges
-    end
+      it 'basket has delivery charge rules' do
+        expect(basket.delivery_charges).to be_an_instance_of DeliveryCharges
+      end
 
-    it 'basket has special offers' do
-      expect(basket.special_offers). to be_an_instance_of SpecialOffers
+      it 'basket has special offers' do
+        expect(basket.special_offers). to be_an_instance_of SpecialOffers
+      end
     end
   end
+
+  describe '#add' do
+    it 'adds a product to the order log' do
+      basket.add(socks)
+      expect(basket.order_log).to eq [socks]
+    end
+  end
+
+
 
 end
