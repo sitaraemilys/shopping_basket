@@ -21,7 +21,7 @@ describe 'Feature tests' do
     end
 
     it 'basket has a total of 0' do
-      expect(basket.total).to eq 0
+      expect(basket.sum).to eq 0
     end
 
     it 'basket has delivery charge rules' do
@@ -40,7 +40,15 @@ describe 'Feature tests' do
     end
 
     it 'adds the price of the product to the total' do
-      expect(basket.total).to eq 7.95
+      expect(basket.sum).to eq 7.95
+    end
+  end
+
+  describe '#total' do
+    it 'returns the total cost of the basket, taking into account delivery charges and special offers' do
+      basket.add('J01')
+      basket.add('J01')
+      expect(basket.total).to eq '£60.33'
     end
   end
 

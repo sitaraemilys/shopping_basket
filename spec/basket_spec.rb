@@ -18,7 +18,7 @@ describe Basket do
     end
 
     it 'has a total of 0' do
-      expect(basket.total).to eq 0
+      expect(basket.sum).to eq 0
     end
 
     it 'has delivery charge rules' do
@@ -39,7 +39,7 @@ describe Basket do
     end
 
     it 'adds the price of the product to the total' do
-      expect(basket.total).to eq 7.95
+      expect(basket.sum).to eq 7.95
     end
   end
 
