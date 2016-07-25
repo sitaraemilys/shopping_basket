@@ -43,4 +43,13 @@ describe Basket do
     end
   end
 
+  describe '#total' do
+    it 'returns the sum of the basket, taking into account delivery charges and special offers' do
+      basket.add('S01')
+      basket.add('J01')
+      basket.add('J01')
+      expect(basket.total).to eq '£60.33'
+    end
+  end
+
 end

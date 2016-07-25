@@ -23,4 +23,10 @@ class Basket
     end
   end
 
+  def total
+    @sum = @special_offers.calculate(@order_log, @sum)
+    @sum += @delivery_charges.calculate(@sum)
+    '£' + '%.2f' % @sum
+  end
+
 end
