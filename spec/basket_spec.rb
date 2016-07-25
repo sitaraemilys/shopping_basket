@@ -13,6 +13,10 @@ describe Basket do
     it 'has a product catalog' do
       expect(subject.product_catalog).to eq [socks, jeans, blouse]
     end
+
+    it 'has an empty order log' do
+      expect(subject.order_log).to be_empty
+    end
   end
 
 end
