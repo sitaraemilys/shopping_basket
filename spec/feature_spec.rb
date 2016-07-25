@@ -24,6 +24,10 @@ describe 'Feature tests' do
     it 'basket has a total of 0' do
       expect(basket.total).to eq 0
     end
+
+    it 'basket has delivery charge rules' do
+      expect(basket.delivery_charges).to_be_an_instance_of DeliveryCharges
+    end
   end
 
 end
