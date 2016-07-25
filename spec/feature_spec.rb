@@ -52,6 +52,4 @@ describe 'Feature tests' do
     end
   end
 
-
-
 end
