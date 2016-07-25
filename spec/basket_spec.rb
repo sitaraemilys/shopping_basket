@@ -11,12 +11,16 @@ describe Basket do
   describe '#initialize' do
 
     it 'has a product catalog' do
-      expect(subject.product_catalog).to eq [socks, jeans, blouse]
+      expect(basket.product_catalog).to eq [socks, jeans, blouse]
     end
 
     it 'has an empty order log' do
-      expect(subject.order_log).to be_empty
+      expect(basket.order_log).to be_empty
     end
+  end
+
+  it 'has a total of 0' do
+    expect(basket.total).to eq 0
   end
 
 end
