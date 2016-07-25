@@ -8,4 +8,12 @@ describe Products do
     end
   end
 
+  describe '#add' do
+    it 'adds a product to the catalog' do
+      socks = Product.new("Socks", "S01", 7.95)
+      subject.add(socks)
+      expect(subject.catalog).to eq [socks]
+    end
+  end
+
 end
