@@ -83,7 +83,7 @@ Wow, what a bargain!
 
 ## Testing
 
-  In your terminal, type `$ rspec under `shopping_basket` directory and it will run all the tests, including unit and feature in spec files.
+  In your terminal, type `$ rspec` under `shopping_basket` directory and it will run all the tests, including unit and feature in spec files.
 
 
 ## Tools
