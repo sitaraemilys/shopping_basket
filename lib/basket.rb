@@ -14,4 +14,13 @@ class Basket
     @special_offers = special_offers.new
   end
 
+  def add(product_code)
+    @product_catalog.each do |product|
+      if product.code == product_code
+        @order_log << product
+        @total += product.price
+      end
+    end
+  end
+
 end

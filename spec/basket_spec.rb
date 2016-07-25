@@ -2,14 +2,13 @@ require 'basket'
 
 describe Basket do
 
-  let(:socks) { double(:socks) }
-  let(:jeans) { double(:jeans) }
-  let(:blouse) { double(:blouse) }
+  let(:socks) { double(:socks, code: 'S01', price: 7.95) }
+  let(:jeans) { double(:jeans, code: 'J01', price: 32.95) }
+  let(:blouse) { double(:blouse, code: 'B01', price: 24.95) }
   let(:products) {double(:products, catalog: [socks, jeans, blouse]) }
   subject(:basket) { described_class.new(products) }
 
   describe '#initialize' do
-
     it 'has a product catalog' do
       expect(basket.product_catalog).to eq [socks, jeans, blouse]
     end
@@ -17,18 +16,31 @@ describe Basket do
     it 'has an empty order log' do
       expect(basket.order_log).to be_empty
     end
+
+    it 'has a total of 0' do
+      expect(basket.total).to eq 0
+    end
+
+    it 'has delivery charge rules' do
+      expect(basket.delivery_charges).to be_an_instance_of DeliveryCharges
+    end
+
+    it 'has special offers' do
+      expect(basket.special_offers). to be_an_instance_of SpecialOffers
+    end
   end
 
-  it 'has a total of 0' do
-    expect(basket.total).to eq 0
-  end
+  describe '#add' do
 
-  it 'has delivery charge rules' do
-    expect(basket.delivery_charges).to be_an_instance_of DeliveryCharges
-  end
+    before(:each) { basket.add('S01') }
 
-  it 'has special offers' do
-    expect(basket.special_offers). to be_an_instance_of SpecialOffers
+    it 'takes a product code and adds the product to the order log' do
+      expect(basket.order_log).to eq [socks]
+    end
+
+    it 'adds the price of the product to the total' do
+      expect(basket.total).to eq 7.95
+    end
   end
 
 end
