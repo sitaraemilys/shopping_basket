@@ -27,4 +27,8 @@ describe Basket do
     expect(basket.delivery_charges).to be_an_instance_of DeliveryCharges
   end
 
+  it 'has special offers' do
+    expect(basket.special_offers). to be_an_instance_of SpecialOffers
+  end
+
 end
